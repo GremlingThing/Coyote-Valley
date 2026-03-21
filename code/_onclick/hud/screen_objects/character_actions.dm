@@ -58,40 +58,40 @@
 		var/mob/living/L = usr
 		L.toggle_mob_sleep()
 
-/atom/movable/screen/triage
-	name = "triage button"
-	icon_state = "triage"
-	screen_loc = ui_character_actions
+// /atom/movable/screen/triage
+// 	name = "triage button"
+// 	icon_state = "triage"
+// 	screen_loc = ui_character_actions
 
-/atom/movable/screen/triage/Click(location,control,params)
-	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
-		if(isnull(H.get_active_held_item()))
-			if(HAS_TRAIT(H, TRAIT_HEAL_TONGUE))
-				H.emote("lick")
-			else if(HAS_TRAIT(H, TRAIT_HEAL_TOUCH))
-				H.emote("touch")
-			else if(HAS_TRAIT(H, TRAIT_HEAL_TEND))
-				H.emote("tend")
+// /atom/movable/screen/triage/Click(location,control,params)
+// 	if(ishuman(usr))
+// 		var/mob/living/carbon/human/H = usr
+// 		if(isnull(H.get_active_held_item()))
+// 			if(HAS_TRAIT(H, TRAIT_HEAL_TONGUE))
+// 				H.emote("lick")
+// 			else if(HAS_TRAIT(H, TRAIT_HEAL_TOUCH))
+// 				H.emote("touch")
+// 			else if(HAS_TRAIT(H, TRAIT_HEAL_TEND))
+// 				H.emote("tend")
 
-/atom/movable/screen/triage/DblClick(location,control,params)
-	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
-		var/obj/item/I = H.get_active_held_item()
-		if(isnull(I))
-			if(HAS_TRAIT(H, TRAIT_HEAL_TONGUE))
-				H.emote("lick")
-			else if(HAS_TRAIT(H, TRAIT_HEAL_TOUCH))
-				H.emote("touch")
-			else if(HAS_TRAIT(H, TRAIT_HEAL_TEND))
-				H.emote("tend")
+// /atom/movable/screen/triage/DblClick(location,control,params)
+// 	if(ishuman(usr))
+// 		var/mob/living/carbon/human/H = usr
+// 		var/obj/item/I = H.get_active_held_item()
+// 		if(isnull(I))
+// 			if(HAS_TRAIT(H, TRAIT_HEAL_TONGUE))
+// 				H.emote("lick")
+// 			else if(HAS_TRAIT(H, TRAIT_HEAL_TOUCH))
+// 				H.emote("touch")
+// 			else if(HAS_TRAIT(H, TRAIT_HEAL_TEND))
+// 				H.emote("tend")
 
-			I = H.get_active_held_item()
-			I?.melee_attack_chain(H, H, params)
+// 			I = H.get_active_held_item()
+// 			I?.melee_attack_chain(H, H, params)
 
-		else if(istype(I, /obj/item/hand_item/tactile/))
-			I = H.get_active_held_item()
-			I?.melee_attack_chain(H, H, params)
+// 		else if(istype(I, /obj/item/hand_item/tactile/))
+// 			I = H.get_active_held_item()
+// 			I?.melee_attack_chain(H, H, params)
 
 /atom/movable/screen/aooc_hud_button
 	name = "AOOC"
