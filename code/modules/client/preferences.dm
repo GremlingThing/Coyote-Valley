@@ -572,7 +572,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				llogin_msg += " ([span_alert("[SSeconomy.format_currency(cash_change, TRUE)]")] inactivity tax)"
 			llogin_msg += "</center>"
 			dat += llogin_msg.Join()
-			dat += "<center><a href='?_src_=prefs;preference=special;task=menu'><b>Character Atributes</b></a></center><br>"
+			dat += "<center><a href='?_src_=prefs;preference=special;task=menu'><b>Character Attributes</b></a></center><br>"
 			if(CONFIG_GET(flag/roundstart_traits))
 				dat += "<center>"
 				if(SSquirks.initialized && !(PMC_QUIRK_OVERHAUL_2K23 in current_version))
