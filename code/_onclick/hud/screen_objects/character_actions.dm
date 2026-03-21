@@ -25,7 +25,7 @@
 	M.manage_flavor_tests()
 
 /atom/movable/screen/up
-	name = "look up"
+	name = "shift layer up"
 	icon_state = "up"
 	screen_loc = ui_character_actions
 
@@ -37,7 +37,7 @@
 	H.layershift_up()
 
 /atom/movable/screen/down
-	name = "look down"
+	name = "shift layer down"
 	icon_state = "down"
 	screen_loc = ui_character_actions
 

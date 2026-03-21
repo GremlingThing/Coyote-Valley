@@ -143,7 +143,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	up = null
 	down = null
 	sleep_hud_button = null
-	triage = null
+	// triage = null
 	aooc_hud_button = null
 	newbie_hud_button = null
 	chardir_hud_button = null
