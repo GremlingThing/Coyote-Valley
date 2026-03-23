@@ -335,7 +335,7 @@
 	mob_trait = TRAIT_ORAL_FIXATION
 	value = 0
 	category = QUIRK_CATEGORY_BAWDY_QUIRKS
-	disabled = TRUE
+	disabled = FALSE
 	mechanics = "You can fit any small sized item in your mouth. Small items will muffle your voice. Tiny items wont."
 	conflicts = list()
 

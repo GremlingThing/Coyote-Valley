@@ -50,7 +50,7 @@
 #define ui_back "WEST+6:-13,SOUTH:3" //backpack
 #define ui_storage2 "WEST+4:-5,SOUTH:3" //left pocket
 #define ui_storage1 "WEST+5:-9,SOUTH:3" //right pocket
-#define ui_resistdelay "East-2:-4,SOUTH+0:36" //This is actually resist bar
+#define ui_resistdelay "East-2:3,SOUTH+0:36" //This is actually resist bar
 #define ui_overridden_resist "East-2:-4,SOUTH+0:20" //this is the actual resist button
 #define ui_combat_toggle "CENTER+3:4,SOUTH:2"
 #define ui_zonesel "EAST-3:-5,SOUTH:3"
@@ -69,8 +69,8 @@
 #define ui_movi "East-0:-4,SOUTH:4"
 //#define ui_zonesel "Center+5:2,SOUTH:3:1"
 #define ui_mood 	"Center-1:5,South+1:11"
-#define ui_healthdoll 	"EAST-3:-7,SOUTH+1:17"
-#define ui_banking "WEST+5:-11,SOUTH+1:-7"
+#define ui_healthdoll 	"EAST-3:-7,SOUTH+1:1"
+#define ui_banking "CENTER+2:8,SOUTH+1:-6"
 #define ui_health 	"Right-3:28,South+2:-18"
 #define ui_stamina "Right-2:27,South+1:+3" // replacing internals button
 #define ui_questbook "EAST-3:-4,SOUTH+2:0"

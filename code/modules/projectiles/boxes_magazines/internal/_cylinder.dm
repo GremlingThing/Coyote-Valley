@@ -3,9 +3,11 @@
 	ammo_type = /obj/item/ammo_casing/a357
 	caliber = list(CALIBER_357)
 	max_ammo = 7
-	replace_spent_rounds = 1
+	replace_spent_rounds = TRUE
+	load_behavior = AMMOB_INTERNAL_REVOLVER_CYLINDER
 
-/obj/item/ammo_box/magazine/internal/cylinder/ammo_count(countempties = 1)
+
+/obj/item/ammo_box/magazine/internal/cylinder/ammo_count(countempties = TRUE)
 	var/boolets = 0
 	for(var/obj/item/ammo_casing/bullet in stored_ammo)
 		if(bullet && (bullet.BB || countempties))
@@ -30,6 +32,13 @@
 	if(!keep)
 		stored_ammo[1] = null
 	return b
+
+// proc so that revolvers can do their thing right
+/obj/item/ammo_box/magazine/internal/cylinder/remove_casing(obj/item/ammo_casing/other_casing)
+	for(var/i in 1 to LAZYLEN(stored_ammo))
+		if(stored_ammo[i] == other_casing)
+			stored_ammo[i] = null
+
 
 /obj/item/ammo_box/magazine/internal/cylinder/proc/rotate()
 	var/b = stored_ammo[1]
