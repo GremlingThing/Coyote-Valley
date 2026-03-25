@@ -84,6 +84,7 @@
 	SetMobValues(M)
 	
 	var/datum/component/trader_npc/C = M.AddComponent(/datum/component/trader_npc, turf_ref, roam_area ? area_ref : null, roam_area)
+	M.AddComponent(/datum/component/npc_ui)
 
 	SetComponentValues(C)
 
