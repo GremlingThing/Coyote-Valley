@@ -1624,7 +1624,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		dat += "<a href='?_src_=prefs;preference=save'>Save Setup</a> "
 
 	dat += "<a href='?_src_=prefs;preference=reset_all'>Reset Setup</a>"
-	if(check_rights_for(user.client, R_DEFAULT))
+	if(check_rights_for(user.client, R_DEBUG))
 		dat += "<a href='?_src_=prefs;preference=export_icon'>Export Icon</a>"
 	dat += "</center>"
 
