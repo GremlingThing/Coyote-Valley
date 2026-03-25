@@ -378,9 +378,9 @@
 	sleep_hud_button.hud = src
 	infodisplay += sleep_hud_button
 
-	triage = new /atom/movable/screen/triage()
-	triage.hud = src
-	infodisplay += triage
+	// triage = new /atom/movable/screen/triage()
+	// triage.hud = src
+	// infodisplay += triage
 
 	aooc_hud_button = new /atom/movable/screen/aooc_hud_button()
 	aooc_hud_button.hud = src
@@ -438,9 +438,9 @@
 	give_button.hud = src
 	infodisplay += give_button	
 	
-	reload_button = new /atom/movable/screen/reload_button()
-	reload_button.hud = src
-	infodisplay += reload_button
+	// reload_button = new /atom/movable/screen/reload_button()
+	// reload_button.hud = src
+	// infodisplay += reload_button
 
 	// beans_hud_button = new /atom/movable/screen/beans_hud_button()
 	// beans_hud_button.hud = src

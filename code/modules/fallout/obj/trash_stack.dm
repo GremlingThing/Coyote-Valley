@@ -69,7 +69,7 @@
 		playsound(get_turf(src), 'sound/f13effects/loot_trash.ogg', 100, TRUE, 1)
 	to_chat(user, span_smallnoticeital("You start picking through [src]...."))
 	rifling = TRUE
-	if(!do_mob(user, src, 1 SECONDS))
+	if(!do_mob(user, src, 5 SECONDS))
 		rifling = FALSE
 		return
 	rifling = FALSE

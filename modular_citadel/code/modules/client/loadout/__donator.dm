@@ -7,6 +7,7 @@
 	category = LOADOUT_CATEGORY_DONATOR
 	ckeywhitelist = list("This entry should never appear with this variable set.") //If it does, then that means somebody fucked up the whitelist system pretty hard
 	cost = 0
+	disabled = TRUE
 
 /datum/gear/donator/donortestingbikehorn
 	name = "Donor item testing"
@@ -1199,13 +1200,13 @@
 /obj/item/storage/box/large/custom_kit/pipes_wildin/PopulateContents()
 	new /obj/item/gun/ballistic/automatic/combat/worn(src)
 
-/datum/gear/donator/kits/pipes_wildin2
-	name = "Zimnt's Kit"
-	path = /obj/item/storage/box/large/custom_kit/pipes_wildin2
-	ckeywhitelist = list("pipes_wildin")
+// /datum/gear/donator/kits/pipes_wildin2
+// 	name = "Zimnt's Kit"
+// 	path = /obj/item/storage/box/large/custom_kit/pipes_wildin2
+// 	ckeywhitelist = list("pipes_wildin")
 
-/obj/item/storage/box/large/custom_kit/pipes_wildin2/PopulateContents()
-	new /obj/item/stealthboy(src)
+// /obj/item/storage/box/large/custom_kit/pipes_wildin2/PopulateContents()
+// 	new /obj/item/stealthboy(src)
 
 /datum/gear/donator/kits/pixelexip
 	name = "Bruiser's Kit"
@@ -1717,7 +1718,7 @@
 	new /obj/item/clothing/glasses/phantomthief(src)
 	new /obj/item/storage/backpack/satchel/sec(src)
 	new /obj/item/clothing/gloves/thief(src)
-	new /obj/item/stealthboy(src)
+	// new /obj/item/stealthboy(src)
 	new /obj/item/lockpick_set(src)
 	new /obj/item/lockpick_set(src)
 	new /obj/item/lockpick_set(src)

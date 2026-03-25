@@ -712,11 +712,12 @@ GLOBAL_LIST_INIT(valid_plushie_paths, valid_plushie_paths())
 	desc = "An adorable stuffed toy resembling some sort of crew member."
 	can_random_spawn = FALSE
 
-/obj/item/toy/plush/mammal/wolf/blue
-	name = "blue wolf plushie"
-	desc = "This plushie looks familiar...."
-	icon_state = "bluewolf"
-	inhand_icon_state = "bluewolf"
+//  We still miss you, Blue.  What you did is unforgivable, but know that we all wish it was different.  I hope you're well. ~Fenny
+// /obj/item/toy/plush/mammal/wolf/blue
+// 	name = "blue wolf plushie"
+// 	desc = "This plushie looks familiar...."
+// 	icon_state = "bluewolf"
+// 	inhand_icon_state = "bluewolf"
 
 /obj/item/toy/plush/mammal/fox
 	name = "fox plushie"

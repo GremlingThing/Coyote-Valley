@@ -527,13 +527,10 @@
 	name = "Binoculars"
 	path = /obj/item/binoculars
 	
-/datum/gear/utility/tier4/stealthboy
-	name = "Stealth Module"
-	path = /obj/item/stealthboy
-
-/datum/gear/utility/tier0/flashdark //So shadowfiends can live without depriving everyone else of light
-	name = "Flash DARK"
-	path = /obj/item/flashlight/flashdark
+// /datum/gear/utility/tier4/stealthboy
+// 	name = "Stealth Module"
+// 	path = /obj/item/stealthboy
+	
 
 // TIER 1 STUFF //
 

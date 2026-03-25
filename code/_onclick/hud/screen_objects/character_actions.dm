@@ -25,7 +25,7 @@
 	M.manage_flavor_tests()
 
 /atom/movable/screen/up
-	name = "up"
+	name = "shift layer up"
 	icon_state = "up"
 	screen_loc = ui_character_actions
 
@@ -37,7 +37,7 @@
 	H.layershift_up()
 
 /atom/movable/screen/down
-	name = "down"
+	name = "shift layer down"
 	icon_state = "down"
 	screen_loc = ui_character_actions
 
@@ -58,40 +58,40 @@
 		var/mob/living/L = usr
 		L.toggle_mob_sleep()
 
-/atom/movable/screen/triage
-	name = "triage button"
-	icon_state = "triage"
-	screen_loc = ui_character_actions
+// /atom/movable/screen/triage
+// 	name = "triage button"
+// 	icon_state = "triage"
+// 	screen_loc = ui_character_actions
 
-/atom/movable/screen/triage/Click(location,control,params)
-	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
-		if(isnull(H.get_active_held_item()))
-			if(HAS_TRAIT(H, TRAIT_HEAL_TONGUE))
-				H.emote("lick")
-			else if(HAS_TRAIT(H, TRAIT_HEAL_TOUCH))
-				H.emote("touch")
-			else if(HAS_TRAIT(H, TRAIT_HEAL_TEND))
-				H.emote("tend")
+// /atom/movable/screen/triage/Click(location,control,params)
+// 	if(ishuman(usr))
+// 		var/mob/living/carbon/human/H = usr
+// 		if(isnull(H.get_active_held_item()))
+// 			if(HAS_TRAIT(H, TRAIT_HEAL_TONGUE))
+// 				H.emote("lick")
+// 			else if(HAS_TRAIT(H, TRAIT_HEAL_TOUCH))
+// 				H.emote("touch")
+// 			else if(HAS_TRAIT(H, TRAIT_HEAL_TEND))
+// 				H.emote("tend")
 
-/atom/movable/screen/triage/DblClick(location,control,params)
-	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
-		var/obj/item/I = H.get_active_held_item()
-		if(isnull(I))
-			if(HAS_TRAIT(H, TRAIT_HEAL_TONGUE))
-				H.emote("lick")
-			else if(HAS_TRAIT(H, TRAIT_HEAL_TOUCH))
-				H.emote("touch")
-			else if(HAS_TRAIT(H, TRAIT_HEAL_TEND))
-				H.emote("tend")
+// /atom/movable/screen/triage/DblClick(location,control,params)
+// 	if(ishuman(usr))
+// 		var/mob/living/carbon/human/H = usr
+// 		var/obj/item/I = H.get_active_held_item()
+// 		if(isnull(I))
+// 			if(HAS_TRAIT(H, TRAIT_HEAL_TONGUE))
+// 				H.emote("lick")
+// 			else if(HAS_TRAIT(H, TRAIT_HEAL_TOUCH))
+// 				H.emote("touch")
+// 			else if(HAS_TRAIT(H, TRAIT_HEAL_TEND))
+// 				H.emote("tend")
 
-			I = H.get_active_held_item()
-			I?.melee_attack_chain(H, H, params)
+// 			I = H.get_active_held_item()
+// 			I?.melee_attack_chain(H, H, params)
 
-		else if(istype(I, /obj/item/hand_item/tactile/))
-			I = H.get_active_held_item()
-			I?.melee_attack_chain(H, H, params)
+// 		else if(istype(I, /obj/item/hand_item/tactile/))
+// 			I = H.get_active_held_item()
+// 			I?.melee_attack_chain(H, H, params)
 
 /atom/movable/screen/aooc_hud_button
 	name = "AOOC"
@@ -127,7 +127,7 @@
 	name = "Who"
 	icon = 'icons/mob/screen_gen.dmi'
 	icon_state = "who" // milhouse who
-	screen_loc = "EAST-3:-4, SOUTH+1:-13"
+	screen_loc = "RIGHT-0:-4,South+1:18"
 
 /atom/movable/screen/who/Click(location,control,params)
 	SSwho.Who(usr.client)
@@ -286,7 +286,7 @@
 /atom/movable/screen/roll_hud_button
 	name = "Stat Roller Radial Menu"
 	icon_state = "skillcheck"
-	screen_loc = "RIGHT-2:-4,South+2:0"
+	screen_loc = "RIGHT-0:-4,South+2:12"
 
 /atom/movable/screen/roll_hud_button/Click(location,control,params,)
 // This stuff needs to be changed because it was directly lifted from clothing
@@ -300,7 +300,7 @@
 			"Fate" = image(icon = 'icons/mob/screen_gen.dmi', icon_state = "fate"),
 		)
 	var/mob/user = usr
-	var/choice = show_radial_menu(user, src, choices, radius = 32,)
+	var/choice = show_radial_menu(user, src, choices, radius = 28, ultradense = TRUE, linedir = NORTH)
 	switch(choice)
 		if("Brawn")
 			user.emote("special_strength")
@@ -486,7 +486,7 @@
 /atom/movable/screen/hand_items_button
 	name = "Personal Tools"
 	icon_state = "handitems"
-	screen_loc = "RIGHT-0:-4,South+2:0"
+	screen_loc = "CENTER+3:+4, SOUTH+1:-4"
 
 /atom/movable/screen/hand_items_button/Click(location,control,params)
 	var/mob/living/carbon/human/H = usr
@@ -584,7 +584,7 @@
 	name = "give somebody something!"
 	icon = 'icons/mob/screen_gen.dmi'
 	icon_state = "give"
-	screen_loc = "CENTER+1:15,SOUTH+1:3"
+	screen_loc = "CENTER+1:14,SOUTH+1:3"
 
 /atom/movable/screen/give_button/Click(location,control,params)
 	var/mob/living/carbon/human/H = usr
@@ -689,7 +689,9 @@
 	name = "tend on people!"
 	icon = 'icons/mob/screen_gen.dmi'
 	icon_state = "tend"
-	screen_loc = "CENTER+3:8, SOUTH+1:-6"
+	screen_loc = "CENTER+2:8, SOUTH+1:-6"
+	alpha = 0
+	mouse_opacity = 0
 
 /atom/movable/screen/tend_hud_button/Click(location,control,params)
 	var/mob/living/carbon/human/H = usr
