@@ -1,25 +1,12 @@
 /datum/component/npc_ui
 	var/range = 2 // how many tiles can you click on the NPC?
-	var/ui_ref = "Dialogue"
+	var/ui_ref = "NPCDialogue"
 
-	var/product_records = list()
-
-	///Default price of items if not overridden
-	var/default_price = PRICE_NORMAL
-
-	var/force_free
-
-	var/vend_ready
-
-	var/stored_caps = 0
-	var/icon_vend
-
-
-/datum/component/npc_ui/Initialize()
-	if(!ismob(parent))
-		return COMPONENT_INCOMPATIBLE
+// /datum/component/npc_ui/Initialize()
+// 	if(!ismob(parent))
+// 		return COMPONENT_INCOMPATIBLE
 	
-	. = ..()
+// 	. = ..()
 
 /datum/component/npc_ui/RegisterWithParent()
 	. = ..()
@@ -45,6 +32,23 @@
 
 	INVOKE_ASYNC(src, PROC_REF(present_ui), user)
 
+
+/datum/component/npc_ui/trader
+	ui_ref = "NPCTrading"
+
+	var/product_records = list()
+
+	///Default price of items if not overridden
+	var/default_price = PRICE_NORMAL
+
+	var/force_free
+
+	var/vend_ready
+
+	var/stored_caps = 0
+	var/icon_vend
+
+
 /datum/component/npc_ui/proc/present_ui(mob/user, datum/tgui/ui)
 	var/atom/A = parent
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -53,12 +57,12 @@
 		ui.open()
 
 
-/datum/component/npc_ui/ui_assets(mob/user)
+/datum/component/npc_ui/trader/ui_assets(mob/user)
 	return list(
 		get_asset_datum(/datum/asset/spritesheet/vending),
 	)
 
-/datum/component/npc_ui/ui_static_data(mob/user)
+/datum/component/npc_ui/trader/ui_static_data(mob/user)
 	. = list()
 	// .["onstation"] = onstation
 	// .["department"] = payment_department
@@ -95,23 +99,17 @@
 	// 	)
 	// 	.["hidden_records"] += list(data)
 
-/datum/component/npc_ui/ui_data(mob/user)
+/datum/component/npc_ui/trader/ui_data(mob/user)
 	. = list()
 	var/mob/living/carbon/human/H
 	var/obj/item/card/id/C
 	if(ishuman(user))
 		H = user
-		C = H.get_idcard(TRUE)
+		C = H.gehttp://192.168.1.158:8096/web/#/videot_idcard(TRUE)
 		if(C?.registered_account)
 			.["user"] = list()
 			.["user"]["name"] = C.registered_account.account_holder
 			.["user"]["cash"] = C.registered_account.account_balance
-			if(C.registered_account.account_job)
-				.["user"]["job"] = C.registered_account.account_job.title
-				.["user"]["department"] = C.registered_account.account_job.paycheck_department
-			else
-				.["user"]["job"] = "No Job"
-				.["user"]["department"] = "No Department"
 	.["stock"] = list()
 	for (var/datum/data/vending_product/R in product_records)
 		.["stock"][R.name] = R.amount
@@ -120,7 +118,7 @@
 	.["forceFree"] = force_free
 
 
-/datum/component/npc_ui/ui_act(action,params)
+/datum/component/npc_ui/trader/ui_act(action,params)
 	. = ..()
 	if(.)
 		return
@@ -149,8 +147,8 @@
 			var/price_to_use = default_price
 			if(R.custom_price)
 				price_to_use = R.custom_price
-			if(coin_records.Find(R) || hidden_records.Find(R))
-				price_to_use = R.custom_premium_price ? R.custom_premium_price : extra_price
+			// if(coin_records.Find(R) || hidden_records.Find(R))
+			// 	price_to_use = R.custom_premium_price ? R.custom_premium_price : extra_price
 
 			//Make sure we actually have the item.
 			// if(R in hidden_records)
@@ -204,4 +202,4 @@
 			vend_ready = TRUE
 
 		if("ejectCaps")
-			remove_all_caps()
+			//remove_all_caps()
