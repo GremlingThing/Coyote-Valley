@@ -84,7 +84,7 @@
 	SetMobValues(M)
 	
 	var/datum/component/trader_npc/C = M.AddComponent(/datum/component/trader_npc, turf_ref, roam_area ? area_ref : null, roam_area)
-	M.AddComponent(/datum/component/npc_ui)
+	M.AddComponent(/datum/component/npc_ui/trader)
 
 	SetComponentValues(C)
 
@@ -209,17 +209,17 @@
 	roam_area = roam_in_areas
 	roam_range = wander_range
 
+/datum/component/trader_npc/RegisterWithParent()
+	. = ..()
+	RegisterSignal(parent_ref, COMSIG_NPC_UPDATE, PROC_REF(process_ai))
 	RegisterSignal(parent, COMSIG_NPC_RETURN, PROC_REF(return_to_position), turf_ref)
 	RegisterSignal(parent, COMSIG_NPC_SEEN_PERSON, PROC_REF(notice_people))
 	RegisterSignal(parent, COMSIG_NPC_ALERT_SOUND, PROC_REF(notice_people))
 
-/datum/component/trader_npc/RegisterWithParent()
-	. = ..()
-	RegisterSignal(parent_ref, COMSIG_NPC_UPDATE, PROC_REF(process_ai))
 
 /datum/component/trader_npc/UnregisterFromParent()
 	. = ..()
-	UnregisterSignal(parent_ref, COMSIG_NPC_UPDATE)
+	UnregisterSignal(parent_ref, list(COMSIG_NPC_UPDATE,COMSIG_NPC_RETURN,COMSIG_NPC_SEEN_PERSON,COMSIG_NPC_ALERT_SOUND))
 
 /datum/component/trader_npc/proc/process_ai()
 	var/atoms = oview(5, parent_ref)
