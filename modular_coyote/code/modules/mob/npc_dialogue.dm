@@ -105,7 +105,7 @@
 	var/obj/item/card/id/C
 	if(ishuman(user))
 		H = user
-		C = H.gehttp://192.168.1.158:8096/web/#/videot_idcard(TRUE)
+		C = H.get_idcard()
 		if(C?.registered_account)
 			.["user"] = list()
 			.["user"]["name"] = C.registered_account.account_holder
